@@ -1,0 +1,30 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+
+configurations {
+    deployerJars
+}
+
+repositories {
+    mavenCentral()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+
+            pom.version = "1.0.0"
+            pom.artifactId ="com.jin.testApi"
+            pom.groupId ="com.jin.testApi"
+
+            repository(url: "https://wss131433.public.com/testupload") {
+                // maven授权信息
+                authentication(userName:
+                        "wss131433 ", password: "521shouhuni")
+            }
+            }
+        }
+    }
+
